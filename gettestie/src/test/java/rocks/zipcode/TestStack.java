@@ -56,7 +56,7 @@ public class TestStack {
         Assert.assertTrue(stack.isEmpty());
     }
 
-    
+
 
 
 
