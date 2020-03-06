@@ -6,7 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayDeque;
-import java.util.Vector;
 
 public class TestArrayDeque {
     ArrayDeque<String> myDeque;
