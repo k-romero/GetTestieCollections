@@ -5,7 +5,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.TreeMap;
+import java.util.Iterator;
 import java.util.TreeSet;
 
 public class TestTreeSet {
@@ -42,5 +42,55 @@ public class TestTreeSet {
     public void pollTest(){
         treeSet.clear();
         Assert.assertEquals(null, treeSet.pollFirst());
+    }
+
+    @Test
+    public void lastHighestElmTest(){
+        treeSet.add("Two");
+        treeSet.add("Three");
+        treeSet.add("Four");
+        treeSet.add("Five");
+        treeSet.add("Six");
+        String lastElm = treeSet.last();
+        String expected = "Two";
+        Assert.assertEquals(expected,lastElm);
+    }
+
+    @Test
+    public void iteratorTest(){
+        treeSet.add("Two");
+        treeSet.add("Three");
+        treeSet.add("Four");
+        treeSet.add("Five");
+        treeSet.add("Six");
+        Iterator iterator = treeSet.iterator();
+        int expected = 6;
+        int actual = 0;
+        for (Iterator it = iterator; it.hasNext(); ) {
+            it.next();
+            actual = actual + 1;
+        }
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void higherTest(){
+        treeSet.add("Two");
+        treeSet.add("Three");
+        treeSet.add("Four");
+        treeSet.add("Five");
+        treeSet.add("Six");
+
+        Assert.assertEquals(null,treeSet.higher("Two"));
+    }
+
+    @Test
+    public void lowerTest(){
+        treeSet.add("Two");
+        treeSet.add("Three");
+        treeSet.add("Four");
+        treeSet.add("Five");
+        treeSet.add("Six");
+        Assert.assertEquals("Three",treeSet.lower("Two"));
     }
 }
